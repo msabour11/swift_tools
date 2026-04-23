@@ -8,7 +8,16 @@ app_license = "mit"
 # Apps
 # ------------------
 
-# required_apps = []
+required_apps = ["frappe", "erpnext"]
+fixtures = [
+    {"dt": "Custom Field", "filters": [["module", "=", "Swift Tools"]]},
+]
+after_install = "swift_tools.setup.install.after_install"
+doctype_js = {
+    "Sales Invoice": "public/js/arrow_sales_invoice.js",
+    "Sales Order": "public/js/arrow_sales_order.js",
+    "Quotation": "public/js/arrow_quotation.js",
+}
 
 # Each item in the list will be shown as an app in the apps page
 # add_to_apps_screen = [
@@ -43,7 +52,7 @@ app_license = "mit"
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-# doctype_js = {"doctype" : "public/js/doctype.js"}
+
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
@@ -246,4 +255,3 @@ app_license = "mit"
 # ------------
 # List of apps whose translatable strings should be excluded from this app's translations.
 # ignore_translatable_strings_from = []
-
