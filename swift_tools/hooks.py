@@ -11,6 +11,7 @@ app_license = "mit"
 required_apps = ["frappe", "erpnext"]
 fixtures = [
     {"dt": "Custom Field", "filters": [["module", "=", "Swift Tools"]]},
+    {"dt": "Property Setter", "filters": [["module", "=", "Swift Tools"]]},
 ]
 after_install = "swift_tools.setup.install.after_install"
 doctype_js = {
