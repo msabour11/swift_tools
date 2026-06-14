@@ -18,6 +18,7 @@ doctype_js = {
     "Sales Invoice": "public/js/arrow_sales_invoice.js",
     "Sales Order": "public/js/arrow_sales_order.js",
     "Quotation": "public/js/arrow_quotation.js",
+    "Task": "public/js/task.js",
 }
 
 # Each item in the list will be shown as an app in the apps page
