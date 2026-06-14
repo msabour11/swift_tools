@@ -1,5 +1,36 @@
 frappe.ui.form.on("Task", {
 	refresh: function (frm) {},
+	after_save: function (frm) {
+		if (frm.doc.parent_task) {
+			// Fetch all sibling tasks (children of the same parent)
+			frappe.db
+				.get_list("Task", {
+					filters: { parent_task: frm.doc.parent_task },
+					fields: ["progress"],
+				})
+				.then((tasks) => {
+					if (tasks && tasks.length > 0) {
+						let total_progress = 0;
+						tasks.forEach((t) => {
+							total_progress += parseFloat(t.progress) || 0;
+						});
+						let avg_progress = total_progress / tasks.length;
+
+						// Update the parent task with the new average progress
+						frappe.db
+							.set_value("Task", frm.doc.parent_task, "progress", avg_progress)
+							.then(() => {
+								frappe.show_alert({
+									message: __("Parent Task progress updated to {0}%", [
+										avg_progress.toFixed(2),
+									]),
+									indicator: "green",
+								});
+							});
+					}
+				});
+		}
+	},
 	validate: function (frm) {
 		// Run validation only when a user attempts to execute/work on the task
 		if (
@@ -14,9 +45,10 @@ frappe.ui.form.on("Task", {
 							project: frm.doc.project,
 							status: ["in", ["Open", "Overdue", "Pending Review"]], // Statuses indicating the task hasn't executed
 							exp_start_date: ["<", frm.doc.exp_start_date],
+							// progress: ["<", 100],
 							name: ["!=", frm.doc.name],
 						},
-						fields: ["name", "is_group", "is_milestone", "parent_task"],
+						fields: ["name", "is_group", "is_milestone", "parent_task", "progress"],
 					})
 					.then((tasks) => {
 						let has_error = false;
