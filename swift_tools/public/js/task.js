@@ -32,6 +32,9 @@ frappe.ui.form.on("Task", {
 		}
 	},
 	validate: function (frm) {
+		if (frm.doc.is_milestone == 1) {
+			return;
+		}
 		// Run validation only when a user attempts to execute/work on the task
 		if (
 			frm.doc.project &&
@@ -45,7 +48,7 @@ frappe.ui.form.on("Task", {
 							project: frm.doc.project,
 							status: ["in", ["Open", "Overdue", "Pending Review"]], // Statuses indicating the task hasn't executed
 							exp_start_date: ["<", frm.doc.exp_start_date],
-							// progress: ["<", 100],
+
 							name: ["!=", frm.doc.name],
 						},
 						fields: ["name", "is_group", "is_milestone", "parent_task", "progress"],
@@ -97,3 +100,5 @@ frappe.ui.form.on("Task", {
 		}
 	},
 });
+
+
