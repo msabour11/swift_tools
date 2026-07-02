@@ -3,7 +3,7 @@ frappe.ui.form.on("Quotation", {
 		frm.set_query("item_code", "items", function () {
 			return {
 				filters: {
-					custom_item_type: frm.doc.custom_item_type,
+					item_type: frm.doc.custom_item_type,
 				},
 			};
 		});
@@ -12,7 +12,7 @@ frappe.ui.form.on("Quotation", {
 		frm.set_query("item_code", "items", function () {
 			return {
 				filters: {
-					custom_item_type: frm.doc.custom_item_type,
+					item_type: frm.doc.custom_item_type,
 				},
 			};
 		});

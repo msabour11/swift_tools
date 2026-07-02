@@ -3,7 +3,7 @@ frappe.ui.form.on("Sales Order", {
 		frm.set_query("item_code", "items", function () {
 			return {
 				filters: {
-					custom_item_type: frm.doc.item_type,
+					item_type: frm.doc.item_type,
 				},
 			};
 		});
@@ -43,7 +43,7 @@ frappe.ui.form.on("Sales Order", {
 		frm.set_query("item_code", "items", function () {
 			return {
 				filters: {
-					custom_item_type: frm.doc.item_type,
+					item_type: frm.doc.item_type,
 				},
 			};
 		});
