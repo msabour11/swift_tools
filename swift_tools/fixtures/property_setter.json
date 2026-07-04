@@ -143,38 +143,8 @@
   "row_name": null,
   "value": "eval: parent.company ===\"شركة سويفت آرو - مقاولات\""
  },
- {
-  "default_value": null,
-  "doc_type": "Sales Invoice Item",
-  "docstatus": 0,
-  "doctype": "Property Setter",
-  "doctype_or_field": "DocField",
-  "field_name": "custom_villa_type",
-  "is_system_generated": 0,
-  "modified": "2026-04-27 13:30:16.971485",
-  "module": "Swift Tools",
-  "name": "Sales Invoice Item-custom_villa_type-depends_on",
-  "property": "depends_on",
-  "property_type": "Code",
-  "row_name": null,
-  "value": "eval: parent.company ===\"شركة سويفت آرو\""
- },
- {
-  "default_value": null,
-  "doc_type": "Sales Order Item",
-  "docstatus": 0,
-  "doctype": "Property Setter",
-  "doctype_or_field": "DocField",
-  "field_name": "custom_villa_type",
-  "is_system_generated": 0,
-  "modified": "2026-04-27 13:33:04.888200",
-  "module": "Swift Tools",
-  "name": "Sales Order Item-custom_villa_type-depends_on",
-  "property": "depends_on",
-  "property_type": "Code",
-  "row_name": null,
-  "value": "eval: parent.company ===\"شركة سويفت آرو\""
- },
+
+
  {
   "default_value": null,
   "doc_type": "Sales Order Item",
@@ -238,21 +208,6 @@
   "property_type": "Code",
   "row_name": null,
   "value": "eval: parent.company ===\"شركة سويفت آرو\""
- },
- {
-  "default_value": null,
-  "doc_type": "Quotation Item",
-  "docstatus": 0,
-  "doctype": "Property Setter",
-  "doctype_or_field": "DocField",
-  "field_name": "custom_villa_type",
-  "is_system_generated": 0,
-  "modified": "2026-04-27 13:36:31.975497",
-  "module": "Swift Tools",
-  "name": "Quotation Item-custom_villa_type-depends_on",
-  "property": "depends_on",
-  "property_type": "Code",
-  "row_name": null,
-  "value": "eval: parent.company ===\"شركة سويفت آرو\""
  }
+
 ]
