@@ -3,16 +3,16 @@ frappe.ui.form.on("Quotation", {
 		frm.set_query("item_code", "items", function () {
 			return {
 				filters: {
-					item_type: frm.doc.custom_item_type,
+					item_type: frm.doc.item_type,
 				},
 			};
 		});
 	},
-	custom_item_type: function (frm) {
+	item_type: function (frm) {
 		frm.set_query("item_code", "items", function () {
 			return {
 				filters: {
-					item_type: frm.doc.custom_item_type,
+					item_type: frm.doc.item_type,
 				},
 			};
 		});
