@@ -82,7 +82,8 @@ frappe.ui.form.on("Sales Order", {
 			};
 		});
 
-		if (!frm.is_new()) {
+		// only submitted Sales Orders can be linked to a Purchase Order
+		if (frm.doc.docstatus === 1) {
 			frm.add_custom_button(
 				__("Purchase Order"),
 				function () {
@@ -103,6 +104,9 @@ frappe.ui.form.on("Sales Order", {
 							child.description = row.description;
 							child.qty = row.qty;
 							child.uom = row.uom;
+							// link back to the Sales Order (Connections tab + ordered_qty)
+							child.sales_order = frm.doc.name;
+							child.sales_order_item = row.name;
 							child.schedule_date =
 								row.delivery_date ||
 								frm.doc.delivery_date ||
